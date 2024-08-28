@@ -119,6 +119,7 @@ h1 {
   .container-search {
     min-height: auto;
     align-items: center;
+    padding-left: 1rem;
   }
 
   .container-search h1 {
