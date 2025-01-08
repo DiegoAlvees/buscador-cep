@@ -10,7 +10,7 @@ export default function Map({ address }) {
   const [location, setLocation] = useState("");
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCUoPixHfLSLpuzGY2EWMTpNdZiNgAR_E8",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Map({ address }) {
         const geocodeResponse = await fetch(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
             address
-          )}&key=AIzaSyCUoPixHfLSLpuzGY2EWMTpNdZiNgAR_E8`
+          )}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
         );
         const geocodeData = await geocodeResponse.json();
 
