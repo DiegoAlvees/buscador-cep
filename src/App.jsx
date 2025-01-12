@@ -26,7 +26,7 @@ export default function App() {
 
       if (data.erro) {
         throw new Error(
-          "CEP não encontrado, por favor verificar o CEP e tente novamente."
+          "CEP não encontrado, por favor verificar o CEP e tente novamente.."
         );
       }
 
