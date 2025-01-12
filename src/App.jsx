@@ -8,8 +8,10 @@ export default function App() {
   const [mapLoaded, setMapLoaded] = useState(false);
 
   async function fetchData() {
+    const formattedCep = inputValue.replace(/[^0-9]/g, "");
+
     try {
-      if (inputValue.length !== 8 || isNaN(inputValue)) {
+      if (formattedCep.length !== 8 || isNaN(formattedCep)) {
         setError("O CEP precisa ter 8 dígitos numéricos.");
         setCep("");
         setMapLoaded(false);
@@ -17,7 +19,7 @@ export default function App() {
       }
 
       const response = await fetch(
-        `https://viacep.com.br/ws/${inputValue}/json/`
+        `https://viacep.com.br/ws/${formattedCep}/json/`
       );
       if (!response.ok) {
         throw new Error("CEP não encontrado");
